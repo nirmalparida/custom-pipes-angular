@@ -1,0 +1,90 @@
+<div class="pipes-container">
+  <div class="row gx-5">
+    <div class="form-group col">
+      <label for="name">Payee Name</label>
+      <input
+        class="form-control"
+        type="text"
+        name=""
+        id="name"
+        [(ngModel)]="name"
+      />
+    </div>
+    <div class="col">
+      <strong>Pipe@TitleCase</strong>
+      <p>{{ name | titlecase }}</p>
+    </div>
+  </div>
+  <!-- Date -->
+  <div class="row gx-5">
+    <div class="form-group col">
+      <label for="date">Payment Date</label>
+      <input
+        class="form-control"
+        type="date"
+        name="paymentDate"
+        id="date"
+        [(ngModel)]="paymentDate"
+      />
+    </div>
+    <div class="col">
+      <strong>Pipe@date</strong>
+      <p>{{ paymentDate | date: "MMMM d, y" }}</p>
+    </div>
+  </div>
+
+  <div class="row gx-5">
+    <div class="form-group col">
+      <label for="amount">Amount</label>
+      <input
+        class="form-control"
+        type="text"
+        name="amount"
+        id="amount"
+        [(ngModel)]="amount"
+      />
+    </div>
+    <div class="col">
+      <strong>Pipe@currency</strong>
+      <p>{{ amount | currency: "INR" }}</p>
+    </div>
+  </div>
+
+  <div class="row gx-5">
+    <div class="form-group col">
+      <label for="height">Height</label>
+      <input
+        class="form-control"
+        type="text"
+        name="height"
+        id="height"
+        [(ngModel)]="height"
+      />
+    </div>
+    <div class="col">
+      <strong>Pipe@number</strong>
+      <p>{{ height | number: "1.2-4" }}</p>
+    </div>
+  </div>
+  <hr />
+  <div class="row gx-5">
+    <div class="form-group col">
+      <label for="miles">Miles</label>
+      <input
+        class="form-control"
+        type="text"
+        name="miles"
+        id="miles"
+        [(ngModel)]="miles"
+      />
+    </div>
+    <div class="col">
+      <strong>Pipe@customPipe-convert</strong>
+      <p>{{ miles | convert: "km" }} in kms</p>
+      <p>{{ miles | convert: "m" | number: "1.0-2" }} in meters</p>
+      <p *ngIf="(miles | convert: 'cm') > 5000">
+        {{ miles | convert: "cm" }} in centimeters
+      </p>
+    </div>
+  </div>
+</div>
